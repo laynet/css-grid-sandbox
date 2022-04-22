@@ -1,53 +1,48 @@
-
-
-
-/* instructor solution */
-
-html {
-    height: 100%;
-}
-
-body {
-    display: grid;
+.container {
     margin: 20px;
-    height: 100%;
-    grid-template-columns: [col-1-start] 1fr [col-1-end col-2-start] 3fr [col-2-end];
-    grid-template-rows: 4.5rem auto 4.5rem;
-    grid-template-areas: "hd hd"
-                         "side main"
-                         "ft ft";
+    display: grid;
+    height: 500px;
+    /* grid-template-columns: 200px 5rem 20% auto; */
+    grid-template-columns: [hd-start] repeat(4, [col-start] 25% [col-end]) [hd-end];
+    grid-template-rows: [hd-start] 5rem [hd-end row-2-start] minmax(10px, 200px) [row-2-end row-3-start] 100px [row-3-end];
+    /* grid-column-gap: 20px;
+    grid-row-gap: 10px; */
+    grid-gap: 10px;
+    grid-template-areas: "header header header header" 
+                         ". . main main"
+                         "footer footer footer footer";
 }
 
-header {
-    background: blue;
-    color: white;
-    /* grid-column-start: col-1-start;
-    grid-column-end: col-2-end; */
-    grid-area: hd;
+.el1 {
+    background: rgba(255, 154, 72, 0.5);
+    grid-column: col-start 2 / col-end 2;
+    
 }
 
-main {
-    background: red;
-    color: white;
-    /* grid-column-start: col-2-start;
-    grid-column-end: span 1; */
+.el2 {
+    background: rgba(255, 0, 0, 0.5);
+    /* grid-column-start: 1;
+    grid-column-end: -1; */
+    /* grid-column: 1 / -1; */
+    /* grid-row-start: row-2-start;
+    grid-row-end: span 1; */
+    /* grid-row: row-2-start / span 1; */
+    z-index: 10;
     grid-area: main;
 }
 
-aside {
-    background: green;
-    color: white;
-    /* grid-column-start: col-1-start;
-    grid-row-start: 2;
-    grid-row-end: 3; */
-    grid-area: side;
+.el3 {
+    /* margin: 10px; */
+    background: rgba(0, 128, 0, 0.5);
+    /* grid-column-start: 2;
+    grid-column-end: span 3;
+    grid-row-start: row-1-start;
+    grid-row-end: row-2-end; */
+    /* grid-area: row-1-start / 2  / row-2-end / span 3; */
+    grid-area: hd;
 }
 
-footer {
-    background: purple;
-    color: white;
-    /* grid-column-start: col-1-start;
-    grid-column-end: col-2-end; */
-    grid-area: ft;
+.el4 {
+    background: rgba(0, 4, 255, 0.5);
+    grid-area: footer;
 }
-
